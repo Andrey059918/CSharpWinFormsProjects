@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageARGBChanger", "ImageARGBChanger\ImageARGBChanger.csproj", "{EE36F87C-41A3-4840-AE72-361D79CC14FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChristichDllHacker", "ChristichDllHacker\ChristichDllHacker.csproj", "{2C9C9B47-16C4-4B26-A349-C63A3FEBA1EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelListEditor", "ExcelListEditor\ExcelListEditor.csproj", "{C7B12D9D-C98D-41C5-8A9D-CA870EAF6C7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimetableRebuilder", "TimetableRebuilder\TimetableRebuilder.csproj", "{C8C61B7D-0491-4C7A-9C81-4E484B258613}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE36F87C-41A3-4840-AE72-361D79CC14FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE36F87C-41A3-4840-AE72-361D79CC14FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE36F87C-41A3-4840-AE72-361D79CC14FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE36F87C-41A3-4840-AE72-361D79CC14FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C9C9B47-16C4-4B26-A349-C63A3FEBA1EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C9C9B47-16C4-4B26-A349-C63A3FEBA1EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C9C9B47-16C4-4B26-A349-C63A3FEBA1EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C9C9B47-16C4-4B26-A349-C63A3FEBA1EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7B12D9D-C98D-41C5-8A9D-CA870EAF6C7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7B12D9D-C98D-41C5-8A9D-CA870EAF6C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7B12D9D-C98D-41C5-8A9D-CA870EAF6C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7B12D9D-C98D-41C5-8A9D-CA870EAF6C7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8C61B7D-0491-4C7A-9C81-4E484B258613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8C61B7D-0491-4C7A-9C81-4E484B258613}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8C61B7D-0491-4C7A-9C81-4E484B258613}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8C61B7D-0491-4C7A-9C81-4E484B258613}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48228AB3-EA90-4A23-B8C2-3B3785AA8550}
+	EndGlobalSection
+EndGlobal

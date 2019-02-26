@@ -56,12 +56,12 @@ namespace ImageARGBChanger
                     ElementsTable.GetControlFromPosition(0, i).Text = ElementsTable.GetControlFromPosition(0, i).Name.Last().ToString();
                 }
             }
-            parent.GetStringProgram(ElementsTable.Controls[0].Text, ElementsTable.Controls[2].Text, ElementsTable.Controls[4].Text, ElementsTable.Controls[6].Text);
+            //parent.GetStringProgram(ElementsTable.Controls[0].Text, ElementsTable.Controls[2].Text, ElementsTable.Controls[4].Text, ElementsTable.Controls[6].Text);
             Close();
         }
         private void Cancel_Click(object sender, EventArgs e)
         {
-            parent.GetStringProgram("A","R","G","B");
+            //parent.GetStringProgram("A","R","G","B");
             Close();
         }
     }
