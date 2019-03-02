@@ -9,16 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using ClosedXML.Excel;
-using VBasic=Microsoft.VisualBasic.Interaction;
+using ExcelNumberFormat;
+using VBasic = Microsoft.VisualBasic.Interaction;
+using OfficeOpenXml;
 
 namespace TimetableRebuilder
 {
     public partial class Form1 : Form
     {
-        List<Group> Groups;
-        IXLWorkbook SrcBook;
-        IXLWorksheet SrcSheet;
+        Dictionary<String, List<WeekDay>> Groups;
+        ExcelPackage SrcBook;
+        ExcelWorksheet SrcSheet;
 
         String TeachPath;
         List<String> Teachers;
@@ -38,7 +39,8 @@ namespace TimetableRebuilder
             CP_Base.Size = new Size(452, 352);
             CP_Base.AutoScroll = false;
         }
-        private void PreparePanelSwitch() {
+        private void PreparePanelSwitch()
+        {
             CB_Buttons = new List<Button>();
             CB_Buttons.Add(CB_Groups);
             CB_Buttons.Add(CB_Colors);
@@ -55,9 +57,11 @@ namespace TimetableRebuilder
                 Controls.Add(a.Tag as Panel);
                 (a.Tag as Panel).Location = new Point(210, 10);
             });
+            CB_Groups.SendToBack();
             SelectPanel(CB_Groups, EventArgs.Empty);
         }
-        private void DefaultFonts() {
+        private void DefaultFonts()
+        {
             CPF_Group.Tag = new Font("Segoe UI", 32, FontStyle.Bold);
             CPF_SubHead1.Tag = new Font("Segoe UI", 24, FontStyle.Bold);
             CPF_SubHead2.Tag = new Font("Segoe UI", 20, FontStyle.Bold);
@@ -66,15 +70,18 @@ namespace TimetableRebuilder
         }
 
 
-        private void SelectPanel(object sndr, EventArgs args) {
+        private void SelectPanel(object sndr, EventArgs args)
+        {
             CP_Base.SendToBack();
             CB_Buttons.ForEach(a =>
             {
-                if (sndr as Button == a) {
+                if (sndr as Button == a)
+                {
                     a.BackColor = ColorTranslator.FromHtml("ControlLightLight");
                     (a.Tag as Panel).Visible = true;
                 }
-                else {
+                else
+                {
                     a.BackColor = ColorTranslator.FromHtml("ControlLight");
                     a.SendToBack();
                     (a.Tag as Panel).Visible = false;
@@ -90,67 +97,67 @@ namespace TimetableRebuilder
                 (sndr as Button).BackColor = selcolor.Color;
             }
         }
-        private void SelectFont(object sndr, EventArgs args) {
-            FontDialog SelFont = new FontDialog() {ShowColor=false,ShowEffects=true,Font=(sndr as Button).Tag as Font };
-            if (SelFont.ShowDialog() == DialogResult.OK) {
+        private void SelectFont(object sndr, EventArgs args)
+        {
+            FontDialog SelFont = new FontDialog() { ShowColor = false, ShowEffects = true, Font = (sndr as Button).Tag as Font };
+            if (SelFont.ShowDialog() == DialogResult.OK)
+            {
                 (sndr as Button).Tag = SelFont.Font;
-                (sndr as Button).Text = String.Concat(SelFont.Font.Name,"; ", Math.Round(SelFont.Font.SizeInPoints),
-                    SelFont.Font.Bold?"; Bold":"", SelFont.Font.Italic ? "; Italic" : "", SelFont.Font.Underline ? "; Underline" : "", SelFont.Font.Strikeout ? "; Strikeout" : "");
+                (sndr as Button).Text = String.Concat(SelFont.Font.Name, "; ", Math.Round(SelFont.Font.SizeInPoints),
+                    SelFont.Font.Bold ? "; Bold" : "", SelFont.Font.Italic ? "; Italic" : "", SelFont.Font.Underline ? "; Underline" : "", SelFont.Font.Strikeout ? "; Strikeout" : "");
             }
         }
-        
 
-        private void TimetableAdd_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openfile = new OpenFileDialog()
-            {
-                Title = "Выберите таблицу Excel с расписанием...",
-                Filter = "Файлы Excel: *.xls; *.xlsx; *.xlsm|*.xls;*.xlsx;*.xlsm",
-                Multiselect = true
-            };
-            if (openfile.ShowDialog() == DialogResult.OK) {
-                foreach (var path in openfile.FileNames) {
-                    CPG_TPanel.Controls.Add(new Label() { Text = Path.GetFileName(path),Tag=path});
-                    CPG_TPanel.Controls[CPG_TPanel.Controls.Count - 1].Click += (e1, e2) => CPG_TPanel.Controls.Remove(e1 as Control);
-                }
-            }
-        }
-        private void GroupAdd_Click(object sender, EventArgs e)
-        {
-            String groupInput = VBasic.InputBox("Название группы должно полностью соответствовать названию в расписании", "Добавление группы...","",MousePosition.X-320, MousePosition.Y-50);
-            if (groupInput != "")
-            {
-                CPG_GPanel.Controls.Add(new Label() { Text = groupInput });
-                CPG_GPanel.Controls[CPG_GPanel.Controls.Count - 1].Click += (e1, e2) => CPG_GPanel.Controls.Remove(e1 as Control);
-            }
-        }
+
         private void GetTimetable_Click(object sender, EventArgs e)
         {
-            Groups = new List<Group>();
-            foreach (Control fl in CPG_TPanel.Controls)
+            Teachers = new List<string>();
+            ExcelPackage TeachBook = new ExcelPackage(new FileInfo(TeachPath));
+            ExcelWorksheet TeachSheet = TeachBook.Workbook.Worksheets[1];
+            for (int i = 1; i < TeachSheet.Dimension.Rows; i++)
             {
-                LogText("Анализ файла "+fl.Text);
-                SrcBook = new XLWorkbook(fl.Tag.ToString());
-                SrcSheet = SrcBook.Worksheet(1);
-                foreach (Control gl in CPG_GPanel.Controls)
+                if (!Teachers.Contains(TeachSheet.Cells[i + 1, 1].Text))
                 {
-                    String GName = gl.Text;
-                    IXLCells cells = SrcSheet.Row(2).CellsUsed(a => a.Value.ToString().StartsWith(GName));
-                    if (cells.Count() > 0)
+                    Teachers.Add(TeachSheet.Cells[i + 1, 1].Text);
+                }
+            }
+            List<String> files = new List<string>();
+            foreach (Control gl in CPG_Selected.Controls)
+            {
+                if (!files.Contains(gl.Tag.ToString()))
+                {
+                    files.Add(gl.Tag.ToString());
+                }
+            }
+            foreach (String str in files)
+            {
+                Groups = new Dictionary<string, List<WeekDay>>();
+                LogText($"Получение расписаний из {str}");
+                SrcBook = new ExcelPackage(new FileInfo(str));
+                SrcSheet = SrcBook.Workbook.Worksheets[1];
+                foreach (Control grlabel in CPG_Selected.Controls)
+                {
+                    LogText($"Получение расписания для {grlabel.Text}");
+                    var cells = SrcSheet.Cells[2, 1, 2, SrcSheet.Dimension.Columns].Where(a => a.Text==CPG_Selected.Controls[0].Text).ToList();
+                    if (cells.Count == 1)
                     {
-                        LogText("Поиск завершен:");
-                        foreach (IXLCell cell in cells)
+                        Int32 cellcol = cells[0].Start.Column;
+                        Groups.Add(grlabel.Text, new List<WeekDay>());
+                        for (int i = 0; i < 6; i++)
                         {
-                            LogText(cell.Value.ToString());
-                            ReadTimeTable(cell.Address.ColumnNumber);
+                            Groups.Last().Value.Add(new WeekDay());
+                            for (int j = 0; j < 12; j++)
+                            {
+                                Groups.Last().Value.Last().Lessons[j % 2].Add(new Lesson(
+                                    SrcSheet.Cells[12 * i + 4 + j, 0 + cellcol].Text,
+                                    String.Concat(SrcSheet.Cells[12 * i + 4 + j, 1 + cellcol].Text.Split('\n')),
+                                    ReplaceTeacher(SrcSheet.Cells[12 * i + 4 + j, 2 + cellcol].Text),
+                                    SrcSheet.Cells[12 * i + 4 + j, 3 + cellcol].Text
+                                    ));
+                            }
                         }
                     }
-                    else
-                    {
-                        LogText("Поиск не дал результатов");
-                    }
                 }
-                SrcBook.Dispose();
             }
         }
         private void TeacherCheckbox_Click(object sender, EventArgs e)
@@ -194,7 +201,7 @@ namespace TimetableRebuilder
                 }
                 else
                 {
-                    if (TTeachers.Where(a => a.Split(' ')[1].StartsWith(Tshort.Split(' ')[1].Split('.')[0])&& a.Split(' ')[2].StartsWith(Tshort.Split(' ')[1].Split('.')[1])).Count() == 1)
+                    if (TTeachers.Where(a => a.Split(' ')[1].StartsWith(Tshort.Split(' ')[1].Split('.')[0]) && a.Split(' ')[2].StartsWith(Tshort.Split(' ')[1].Split('.')[1])).Count() == 1)
                     {
                         String[] temp = TTeachers[0].Split(' ');
                         return temp[0] + "\n" + temp[1] + " " + temp[2];
@@ -206,39 +213,64 @@ namespace TimetableRebuilder
                 }
             }
         }
-        private void ReadTimeTable(Int32 column) {
-            Groups.Add(new Group(SrcSheet.Cell(2, column).Value.ToString()));
-            for (int i = 0; i < 6; i++) {
-                Groups.Last().WDays.Add(new WeekDay());
-                for (int j = 0; j < 12; j++)
-                {
-                    Groups.Last().WDays[i].Lessons[j % 2].Add(new Lesson(
-                        SrcSheet.Cell(j + 4, column).Value.ToString(),
-                        SrcSheet.Cell(j + 4, column+1).Value.ToString(),
-                        SrcSheet.Cell(j + 4, column+2).Value.ToString(),
-                        SrcSheet.Cell(j + 4, column+3).Value.ToString()
-                    ));
-                }
-            }
-        }
-        private void LogText(String text) {
+        
+        private void LogText(String text)
+        {
             Console.WriteLine(text);
         }
-    }
 
-    public class Group {
-        public String Name { get; private set; }
-        public List<WeekDay> WDays;
-        public Group(String name) {
-            Name = name;
-            WDays = new List<WeekDay>();
+        private void CPG_FileScan_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openfile = new OpenFileDialog()
+            {
+                Title = "Выберите таблицу Excel с расписанием...",
+                Filter = "Файлы Excel: *.xls; *.xlsx; *.xlsm|*.xls;*.xlsx;*.xlsm",
+                Multiselect = true
+            };
+            if (openfile.ShowDialog() == DialogResult.OK)
+            {
+                LogText($"Выбрано файлов:{openfile.FileNames.Count()}");
+                foreach (var path in openfile.FileNames)
+                {
+                    LogText($"Анализ файла {Path.GetFileName(path)} из {Path.GetDirectoryName(path)}");
+                    using (SrcBook = new ExcelPackage(new FileInfo(path)))
+                    {
+                        SrcSheet = SrcBook.Workbook.Worksheets[1];
+                        var cells = SrcSheet.Cells[2,1,2,SrcSheet.Dimension.Columns].Where(a => a.Text.Length > 9 && a.Text[a.Text.Length - 3] == '-').ToList();
+                        if (cells.Count > 0)
+                        {
+                            foreach (ExcelRangeBase cell in cells)
+                            {
+                                LogText(cell.Value.ToString());
+                                CPG_Finded.Controls.Add(new Label()
+                                {
+                                    Text = cell.Value.ToString(),
+                                    Width = CPG_Finded.ClientSize.Width,
+                                    Tag = path
+                                });
+                                CPG_Finded.Controls[CPG_Finded.Controls.Count - 1].Click += (e1, e2) => {
+                                    if (CPG_Selected.Contains(e1 as Label)) { CPG_Finded.Controls.Add(e1 as Label); }
+                                    else { CPG_Selected.Controls.Add(e1 as Label); }
+                                };
+                            }
+                        }
+                        else
+                        {
+                            LogText("Файл не содержит расписание РТУ");
+                        }
+                    }
+                }
+                LogText("Сканирование файлов завершено");
+            }
         }
 
     }
+
     public class WeekDay
     {
         public List<List<Lesson>> Lessons;
-        public WeekDay() {
+        public WeekDay()
+        {
             Lessons = new List<List<Lesson>>();
             Lessons.Add(new List<Lesson>());
             Lessons.Add(new List<Lesson>());
@@ -250,7 +282,8 @@ namespace TimetableRebuilder
         public String LType { get; private set; }
         public String LTeach { get; private set; }
         public String LRoom { get; private set; }
-        public Lesson(String lname, String ltype, String lteach, String lroom) {
+        public Lesson(String lname, String ltype, String lteach, String lroom)
+        {
             LName = lname;
             LType = ltype;
             LTeach = lteach;

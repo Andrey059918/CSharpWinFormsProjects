@@ -30,9 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.GetTimetable = new System.Windows.Forms.Button();
-            this.CPG_TPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.CPG_TAdd = new System.Windows.Forms.Button();
-            this.CPG_GPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.CPG_FileScan = new System.Windows.Forms.Button();
+            this.CPG_Finded = new System.Windows.Forms.FlowLayoutPanel();
             this.TeacherCheckbox = new System.Windows.Forms.CheckBox();
             this.CPC_2 = new System.Windows.Forms.Button();
             this.CPC_1 = new System.Windows.Forms.Button();
@@ -64,6 +63,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.CPF_TypeNumber = new System.Windows.Forms.Button();
             this.CP_Base = new System.Windows.Forms.Panel();
+            this.CP_Groups = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.CPG_Selected = new System.Windows.Forms.FlowLayoutPanel();
+            this.CPG_Filter = new System.Windows.Forms.TextBox();
             this.CP_Fonts = new System.Windows.Forms.Panel();
             this.CPFC_TypeNumber = new System.Windows.Forms.Button();
             this.CPFC_Table = new System.Windows.Forms.Button();
@@ -88,19 +93,17 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.CP_Colors = new System.Windows.Forms.Panel();
-            this.CP_Groups = new System.Windows.Forms.Panel();
-            this.CPG_GAdd = new System.Windows.Forms.Button();
             this.CB_Groups = new System.Windows.Forms.Button();
             this.CB_Colors = new System.Windows.Forms.Button();
             this.CB_Fonts = new System.Windows.Forms.Button();
             this.CB_Ending = new System.Windows.Forms.Button();
             this.CB_Names = new System.Windows.Forms.Button();
             this.CP_Base.SuspendLayout();
+            this.CP_Groups.SuspendLayout();
             this.CP_Fonts.SuspendLayout();
             this.CP_Ending.SuspendLayout();
             this.CP_Names.SuspendLayout();
             this.CP_Colors.SuspendLayout();
-            this.CP_Groups.SuspendLayout();
             this.SuspendLayout();
             // 
             // GetTimetable
@@ -114,35 +117,27 @@
             this.GetTimetable.UseVisualStyleBackColor = true;
             this.GetTimetable.Click += new System.EventHandler(this.GetTimetable_Click);
             // 
-            // CPG_TPanel
+            // CPG_FileScan
             // 
-            this.CPG_TPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CPG_TPanel.Location = new System.Drawing.Point(15, 70);
-            this.CPG_TPanel.Margin = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            this.CPG_TPanel.Name = "CPG_TPanel";
-            this.CPG_TPanel.Size = new System.Drawing.Size(200, 265);
-            this.CPG_TPanel.TabIndex = 3;
+            this.CPG_FileScan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CPG_FileScan.Location = new System.Drawing.Point(15, 15);
+            this.CPG_FileScan.Margin = new System.Windows.Forms.Padding(5);
+            this.CPG_FileScan.Name = "CPG_FileScan";
+            this.CPG_FileScan.Size = new System.Drawing.Size(420, 25);
+            this.CPG_FileScan.TabIndex = 4;
+            this.CPG_FileScan.Text = "Сканировать файл расписания...";
+            this.CPG_FileScan.UseVisualStyleBackColor = true;
+            this.CPG_FileScan.Click += new System.EventHandler(this.CPG_FileScan_Click);
             // 
-            // CPG_TAdd
+            // CPG_Finded
             // 
-            this.CPG_TAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CPG_TAdd.Location = new System.Drawing.Point(15, 15);
-            this.CPG_TAdd.Margin = new System.Windows.Forms.Padding(5);
-            this.CPG_TAdd.Name = "CPG_TAdd";
-            this.CPG_TAdd.Size = new System.Drawing.Size(200, 45);
-            this.CPG_TAdd.TabIndex = 4;
-            this.CPG_TAdd.Text = "Добавить файл...";
-            this.CPG_TAdd.UseVisualStyleBackColor = true;
-            this.CPG_TAdd.Click += new System.EventHandler(this.TimetableAdd_Click);
-            // 
-            // CPG_GPanel
-            // 
-            this.CPG_GPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CPG_GPanel.Location = new System.Drawing.Point(235, 70);
-            this.CPG_GPanel.Margin = new System.Windows.Forms.Padding(10, 5, 5, 5);
-            this.CPG_GPanel.Name = "CPG_GPanel";
-            this.CPG_GPanel.Size = new System.Drawing.Size(200, 265);
-            this.CPG_GPanel.TabIndex = 4;
+            this.CPG_Finded.AutoScroll = true;
+            this.CPG_Finded.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CPG_Finded.Location = new System.Drawing.Point(15, 85);
+            this.CPG_Finded.Margin = new System.Windows.Forms.Padding(10, 5, 5, 5);
+            this.CPG_Finded.Name = "CPG_Finded";
+            this.CPG_Finded.Size = new System.Drawing.Size(180, 250);
+            this.CPG_Finded.TabIndex = 4;
             // 
             // TeacherCheckbox
             // 
@@ -523,16 +518,91 @@
             this.CP_Base.AutoScroll = true;
             this.CP_Base.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CP_Base.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CP_Base.Controls.Add(this.CP_Groups);
             this.CP_Base.Controls.Add(this.CP_Fonts);
             this.CP_Base.Controls.Add(this.CP_Ending);
             this.CP_Base.Controls.Add(this.CP_Names);
             this.CP_Base.Controls.Add(this.CP_Colors);
-            this.CP_Base.Controls.Add(this.CP_Groups);
             this.CP_Base.Location = new System.Drawing.Point(209, 9);
             this.CP_Base.Margin = new System.Windows.Forms.Padding(0);
             this.CP_Base.Name = "CP_Base";
             this.CP_Base.Size = new System.Drawing.Size(902, 411);
             this.CP_Base.TabIndex = 36;
+            // 
+            // CP_Groups
+            // 
+            this.CP_Groups.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.CP_Groups.Controls.Add(this.button8);
+            this.CP_Groups.Controls.Add(this.button7);
+            this.CP_Groups.Controls.Add(this.button6);
+            this.CP_Groups.Controls.Add(this.CPG_Selected);
+            this.CP_Groups.Controls.Add(this.CPG_Filter);
+            this.CP_Groups.Controls.Add(this.CPG_Finded);
+            this.CP_Groups.Controls.Add(this.CPG_FileScan);
+            this.CP_Groups.Location = new System.Drawing.Point(0, 0);
+            this.CP_Groups.Margin = new System.Windows.Forms.Padding(0);
+            this.CP_Groups.Name = "CP_Groups";
+            this.CP_Groups.Padding = new System.Windows.Forms.Padding(10);
+            this.CP_Groups.Size = new System.Drawing.Size(450, 350);
+            this.CP_Groups.TabIndex = 0;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.SystemColors.Control;
+            this.button8.BackgroundImage = global::TimetableRebuilder.Properties.Resources.Cross;
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Location = new System.Drawing.Point(205, 185);
+            this.button8.Margin = new System.Windows.Forms.Padding(5);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(35, 50);
+            this.button8.TabIndex = 45;
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.SystemColors.Control;
+            this.button7.BackgroundImage = global::TimetableRebuilder.Properties.Resources.ArrowDoubleLeft;
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Location = new System.Drawing.Point(205, 245);
+            this.button7.Margin = new System.Windows.Forms.Padding(5);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(35, 50);
+            this.button7.TabIndex = 44;
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.SystemColors.Control;
+            this.button6.BackgroundImage = global::TimetableRebuilder.Properties.Resources.ArrowDoubleRight;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(205, 125);
+            this.button6.Margin = new System.Windows.Forms.Padding(5);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(35, 50);
+            this.button6.TabIndex = 43;
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // CPG_Selected
+            // 
+            this.CPG_Selected.AutoScroll = true;
+            this.CPG_Selected.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CPG_Selected.Location = new System.Drawing.Point(255, 85);
+            this.CPG_Selected.Margin = new System.Windows.Forms.Padding(10, 5, 5, 5);
+            this.CPG_Selected.Name = "CPG_Selected";
+            this.CPG_Selected.Size = new System.Drawing.Size(180, 250);
+            this.CPG_Selected.TabIndex = 5;
+            // 
+            // CPG_Filter
+            // 
+            this.CPG_Filter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CPG_Filter.Location = new System.Drawing.Point(15, 50);
+            this.CPG_Filter.Margin = new System.Windows.Forms.Padding(5);
+            this.CPG_Filter.Name = "CPG_Filter";
+            this.CPG_Filter.Size = new System.Drawing.Size(420, 24);
+            this.CPG_Filter.TabIndex = 42;
             // 
             // CP_Fonts
             // 
@@ -742,7 +812,6 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.SystemColors.Control;
-            this.button5.BackgroundImage = global::TimetableRebuilder.Properties.Resources.Refresh;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Location = new System.Drawing.Point(15, 40);
             this.button5.Margin = new System.Windows.Forms.Padding(5);
@@ -835,32 +904,6 @@
             this.CP_Colors.Size = new System.Drawing.Size(450, 350);
             this.CP_Colors.TabIndex = 41;
             // 
-            // CP_Groups
-            // 
-            this.CP_Groups.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.CP_Groups.Controls.Add(this.CPG_GAdd);
-            this.CP_Groups.Controls.Add(this.CPG_TPanel);
-            this.CP_Groups.Controls.Add(this.CPG_GPanel);
-            this.CP_Groups.Controls.Add(this.CPG_TAdd);
-            this.CP_Groups.Location = new System.Drawing.Point(0, 0);
-            this.CP_Groups.Margin = new System.Windows.Forms.Padding(0);
-            this.CP_Groups.Name = "CP_Groups";
-            this.CP_Groups.Padding = new System.Windows.Forms.Padding(10);
-            this.CP_Groups.Size = new System.Drawing.Size(450, 350);
-            this.CP_Groups.TabIndex = 0;
-            // 
-            // CPG_GAdd
-            // 
-            this.CPG_GAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CPG_GAdd.Location = new System.Drawing.Point(235, 15);
-            this.CPG_GAdd.Margin = new System.Windows.Forms.Padding(5);
-            this.CPG_GAdd.Name = "CPG_GAdd";
-            this.CPG_GAdd.Size = new System.Drawing.Size(200, 45);
-            this.CPG_GAdd.TabIndex = 41;
-            this.CPG_GAdd.Text = "Добавить группу...";
-            this.CPG_GAdd.UseVisualStyleBackColor = true;
-            this.CPG_GAdd.Click += new System.EventHandler(this.GroupAdd_Click);
-            // 
             // CB_Groups
             // 
             this.CB_Groups.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -952,6 +995,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.CP_Base.ResumeLayout(false);
+            this.CP_Groups.ResumeLayout(false);
+            this.CP_Groups.PerformLayout();
             this.CP_Fonts.ResumeLayout(false);
             this.CP_Fonts.PerformLayout();
             this.CP_Ending.ResumeLayout(false);
@@ -959,7 +1004,6 @@
             this.CP_Names.ResumeLayout(false);
             this.CP_Names.PerformLayout();
             this.CP_Colors.ResumeLayout(false);
-            this.CP_Groups.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -967,9 +1011,8 @@
         #endregion
 
         private System.Windows.Forms.Button GetTimetable;
-        private System.Windows.Forms.FlowLayoutPanel CPG_TPanel;
-        private System.Windows.Forms.Button CPG_TAdd;
-        private System.Windows.Forms.FlowLayoutPanel CPG_GPanel;
+        private System.Windows.Forms.Button CPG_FileScan;
+        private System.Windows.Forms.FlowLayoutPanel CPG_Finded;
         private System.Windows.Forms.CheckBox TeacherCheckbox;
         private System.Windows.Forms.Button CPC_2;
         private System.Windows.Forms.Button CPC_1;
@@ -1006,7 +1049,6 @@
         private System.Windows.Forms.Button CB_Fonts;
         private System.Windows.Forms.Button CB_Ending;
         private System.Windows.Forms.Panel CP_Groups;
-        private System.Windows.Forms.Button CPG_GAdd;
         private System.Windows.Forms.Panel CP_Colors;
         private System.Windows.Forms.Panel CP_Fonts;
         private System.Windows.Forms.Panel CP_Ending;
@@ -1032,6 +1074,11 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.FlowLayoutPanel CPG_Selected;
+        private System.Windows.Forms.TextBox CPG_Filter;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
     }
 }
 
