@@ -206,7 +206,7 @@
             // 
             this.CPC_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.CPC_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CPC_5.Location = new System.Drawing.Point(15, 95);
+            this.CPC_5.Location = new System.Drawing.Point(85, 95);
             this.CPC_5.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.CPC_5.Name = "CPC_5";
             this.CPC_5.Size = new System.Drawing.Size(30, 40);
@@ -219,7 +219,7 @@
             // 
             this.CPC_6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(200)))));
             this.CPC_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CPC_6.Location = new System.Drawing.Point(15, 135);
+            this.CPC_6.Location = new System.Drawing.Point(85, 135);
             this.CPC_6.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.CPC_6.Name = "CPC_6";
             this.CPC_6.Size = new System.Drawing.Size(30, 40);
@@ -232,7 +232,7 @@
             // 
             this.CPC_7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
             this.CPC_7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CPC_7.Location = new System.Drawing.Point(15, 175);
+            this.CPC_7.Location = new System.Drawing.Point(85, 175);
             this.CPC_7.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.CPC_7.Name = "CPC_7";
             this.CPC_7.Size = new System.Drawing.Size(30, 40);
@@ -245,7 +245,7 @@
             // 
             this.CPC_8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
             this.CPC_8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CPC_8.Location = new System.Drawing.Point(15, 215);
+            this.CPC_8.Location = new System.Drawing.Point(85, 215);
             this.CPC_8.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.CPC_8.Name = "CPC_8";
             this.CPC_8.Size = new System.Drawing.Size(30, 40);
@@ -258,7 +258,7 @@
             // 
             this.CPC_9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(227)))), ((int)(((byte)(255)))));
             this.CPC_9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CPC_9.Location = new System.Drawing.Point(15, 255);
+            this.CPC_9.Location = new System.Drawing.Point(85, 255);
             this.CPC_9.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.CPC_9.Name = "CPC_9";
             this.CPC_9.Size = new System.Drawing.Size(30, 40);
@@ -271,7 +271,7 @@
             // 
             this.CPC_10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.CPC_10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CPC_10.Location = new System.Drawing.Point(15, 295);
+            this.CPC_10.Location = new System.Drawing.Point(85, 295);
             this.CPC_10.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.CPC_10.Name = "CPC_10";
             this.CPC_10.Size = new System.Drawing.Size(30, 40);
@@ -284,7 +284,7 @@
             // 
             this.CPC_11.BackColor = System.Drawing.Color.NavajoWhite;
             this.CPC_11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CPC_11.Location = new System.Drawing.Point(45, 95);
+            this.CPC_11.Location = new System.Drawing.Point(15, 95);
             this.CPC_11.Margin = new System.Windows.Forms.Padding(0);
             this.CPC_11.Name = "CPC_11";
             this.CPC_11.Size = new System.Drawing.Size(70, 240);
@@ -558,6 +558,7 @@
             this.button8.Size = new System.Drawing.Size(35, 50);
             this.button8.TabIndex = 45;
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -571,6 +572,7 @@
             this.button7.Size = new System.Drawing.Size(35, 50);
             this.button7.TabIndex = 44;
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
@@ -584,6 +586,7 @@
             this.button6.Size = new System.Drawing.Size(35, 50);
             this.button6.TabIndex = 43;
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // CPG_Selected
             // 
@@ -878,6 +881,7 @@
             // CP_Colors
             // 
             this.CP_Colors.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.CP_Colors.Controls.Add(this.CPC_11);
             this.CP_Colors.Controls.Add(this.CPC_1);
             this.CP_Colors.Controls.Add(this.CPC_2);
             this.CP_Colors.Controls.Add(this.CPC_3);
@@ -888,7 +892,6 @@
             this.CP_Colors.Controls.Add(this.CPC_8);
             this.CP_Colors.Controls.Add(this.CPC_9);
             this.CP_Colors.Controls.Add(this.CPC_10);
-            this.CP_Colors.Controls.Add(this.CPC_11);
             this.CP_Colors.Controls.Add(this.CPC_12);
             this.CP_Colors.Controls.Add(this.CPC_13);
             this.CP_Colors.Controls.Add(this.CPC_19);

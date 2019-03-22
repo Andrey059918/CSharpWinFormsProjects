@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelListEditor", "ExcelLis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimetableRebuilder", "TimetableRebuilder\TimetableRebuilder.csproj", "{C8C61B7D-0491-4C7A-9C81-4E484B258613}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuringMachine", "TuringMachine\TuringMachine.csproj", "{A59DC66C-5178-46E0-BA08-E121D68EAEBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C8C61B7D-0491-4C7A-9C81-4E484B258613}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8C61B7D-0491-4C7A-9C81-4E484B258613}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8C61B7D-0491-4C7A-9C81-4E484B258613}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A59DC66C-5178-46E0-BA08-E121D68EAEBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A59DC66C-5178-46E0-BA08-E121D68EAEBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A59DC66C-5178-46E0-BA08-E121D68EAEBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A59DC66C-5178-46E0-BA08-E121D68EAEBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

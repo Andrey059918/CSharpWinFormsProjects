@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C8C61B7D-0491-4C7A-9C81-4E484B258613}</ProjectGuid>
+    <ProjectGuid>{A59DC66C-5178-46E0-BA08-E121D68EAEBE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>TimetableRebuilder</RootNamespace>
-    <AssemblyName>TimetableRebuilder</AssemblyName>
+    <RootNamespace>TuringMachine</RootNamespace>
+    <AssemblyName>TuringMachine</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,32 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClosedXML, Version=0.94.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ClosedXML.0.94.2\lib\net46\ClosedXML.dll</HintPath>
-    </Reference>
-    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
-      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    <Reference Include="AdjustableHeightTextbox">
+      <HintPath>..\..\000_Materials\AdjustableHeightTextbox\bin\Release\AdjustableHeightTextbox.dll</HintPath>
     </Reference>
     <Reference Include="EPPlus, Version=4.5.3.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.4.5.3.1\lib\net40\EPPlus.dll</HintPath>
     </Reference>
-    <Reference Include="ExcelNumberFormat, Version=1.0.3.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
-      <HintPath>..\packages\ExcelNumberFormat.1.0.3\lib\net20\ExcelNumberFormat.dll</HintPath>
-    </Reference>
-    <Reference Include="FastMember, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FastMember.1.3.0\lib\net45\FastMember.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
-    </Reference>
-    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
-    </Reference>
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -69,52 +53,49 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataClasses\DataStorage.cs" />
-    <Compile Include="ExcelClasses\ExcelReader.cs" />
-    <Compile Include="ExcelClasses\ExcelWriter.cs" />
+    <Compile Include="AdjHeightTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AdjHeightTextBox.designer.cs">
+      <DependentUpon>AdjHeightTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataClasses\Group.cs" />
-    <Compile Include="DataClasses\GroupList.cs" />
-    <Compile Include="DataClasses\Lesson.cs" />
-    <Compile Include="LoaderDialog.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoaderDialog.Designer.cs">
-      <DependentUpon>LoaderDialog.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataClasses\WeekDay.cs" />
-    <Compile Include="Utils\Utils.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoaderDialog.resx">
-      <DependentUpon>LoaderDialog.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -125,17 +106,37 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Refresh.png" />
+    <None Include="Resources\TableDiagonal.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Cross.png" />
+    <None Include="Resources\TabliDiagonal.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ArrowDoubleRight.png" />
+    <None Include="Resources\Space.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ArrowDoubleLeft.png" />
+    <None Include="Resources\DoubleLeft_24x24x8.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\DoubleRight_24x24x8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DoubleLeft_18x20x8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh_24x24x8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SingleLeft_24x24x8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SingleRight_24x24x8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TimetableRebuilder\TimetableRebuilder.csproj">
+      <Project>{C8C61B7D-0491-4C7A-9C81-4E484B258613}</Project>
+      <Name>TimetableRebuilder</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
