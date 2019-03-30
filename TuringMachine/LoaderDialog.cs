@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TimetableRebuilder
+namespace TuringMachine
 {
     public partial class LoaderDialog : Form
     {

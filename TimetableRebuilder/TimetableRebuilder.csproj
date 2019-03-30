@@ -84,21 +84,12 @@
     <Compile Include="DataClasses\Group.cs" />
     <Compile Include="DataClasses\GroupList.cs" />
     <Compile Include="DataClasses\Lesson.cs" />
-    <Compile Include="LoaderDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoaderDialog.Designer.cs">
-      <DependentUpon>LoaderDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataClasses\WeekDay.cs" />
     <Compile Include="Utils\Utils.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoaderDialog.resx">
-      <DependentUpon>LoaderDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -125,6 +116,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\MSSE.ttf" />
     <None Include="Resources\Refresh.png" />
   </ItemGroup>
   <ItemGroup>

@@ -246,10 +246,10 @@ namespace ImageARGBChanger
 
                         public static List<Int32> Recolor(Int32 A,Int32 R,Int32 G, Int32 B,Int32 a,Int32 r,Int32 g,Int32 b )
                         {
-                            Acolor = (Int32)Math.Max(0,Math.Min(255,(float)" + _PSC_ColorAlpha.Text + @"));
-                            Rcolor = (Int32)Math.Max(0,Math.Min(255,(float)" + _PSC_ColorRed.Text + @"));
-                            Gcolor = (Int32)Math.Max(0,Math.Min(255,(float)" + _PSC_ColorGreen.Text + @"));
-                            Bcolor = (Int32)Math.Max(0,Math.Min(255,(float)" + _PSC_ColorBlue.Text + @"));
+                            Acolor = (Int32)Math.Max(0,Math.Min(255," + _PSC_ColorAlpha.Text + @"));
+                            Rcolor = (Int32)Math.Max(0,Math.Min(255," + _PSC_ColorRed.Text + @"));
+                            Gcolor = (Int32)Math.Max(0,Math.Min(255," + _PSC_ColorGreen.Text + @"));
+                            Bcolor = (Int32)Math.Max(0,Math.Min(255," + _PSC_ColorBlue.Text + @"));
                             return new List<Int32>(){Acolor,Rcolor,Gcolor,Bcolor} ;
                         }
                     }

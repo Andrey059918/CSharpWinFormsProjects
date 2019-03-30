@@ -32,11 +32,15 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this._MenuFile = new System.Windows.Forms.ToolStripMenuItem();
             this._MenuFileCreate = new System.Windows.Forms.ToolStripMenuItem();
-            this._MenuFileOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this._MenuFileSave = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this._MenuFileOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this._MenuFileReload = new System.Windows.Forms.ToolStripMenuItem();
             this._MenuFileImport = new System.Windows.Forms.ToolStripMenuItem();
             this._MenuFileImportExcel = new System.Windows.Forms.ToolStripMenuItem();
+            this._MenuFileImportPolyakov = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this._MenuFileSave = new System.Windows.Forms.ToolStripMenuItem();
+            this._MenuFileSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this._MenuFileExport = new System.Windows.Forms.ToolStripMenuItem();
             this._MenuFileExportExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -55,138 +59,182 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this._MenuSimulationDelayCustom = new System.Windows.Forms.ToolStripMenuItem();
             this._MenuSimulationDelayValue = new System.Windows.Forms.ToolStripTextBox();
-            this.помощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._MenuInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.машинаТьюрингаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.работаВЭмулятореToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._DescriptionPanel = new System.Windows.Forms.RichTextBox();
             this._DescriptionLabel = new System.Windows.Forms.Label();
             this._TapePanel = new System.Windows.Forms.FlowLayoutPanel();
             this._TapeLabel = new System.Windows.Forms.Label();
             this._ProgPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this._ProgColumnStates = new System.Windows.Forms.FlowLayoutPanel();
-            this._ProgLabelHead = new System.Windows.Forms.Label();
-            this._ProgColumnSpace = new System.Windows.Forms.FlowLayoutPanel();
-            this._ProgLabelSpace = new System.Windows.Forms.Button();
-            this._ProgColumnComment = new System.Windows.Forms.FlowLayoutPanel();
-            this._ProgLabelComment = new System.Windows.Forms.Label();
             this._ProgLabel = new System.Windows.Forms.Label();
             this._TapePageLeft = new System.Windows.Forms.Button();
             this._TapeCellLeft = new System.Windows.Forms.Button();
             this._TapePageRight = new System.Windows.Forms.Button();
             this._TapeCellRight = new System.Windows.Forms.Button();
-            this._ProgControlB2 = new System.Windows.Forms.Button();
-            this._ProgControlB1 = new System.Windows.Forms.Button();
-            this._ProgControlB3 = new System.Windows.Forms.Button();
-            this._ProgControlB4 = new System.Windows.Forms.Button();
-            this._ProgControlB8 = new System.Windows.Forms.Button();
-            this._ProgControlB7 = new System.Windows.Forms.Button();
-            this._ProgControlB6 = new System.Windows.Forms.Button();
-            this._ProgControlB5 = new System.Windows.Forms.Button();
+            this._ProgControlAddState = new System.Windows.Forms.Button();
+            this._ProgControlAddVar = new System.Windows.Forms.Button();
             this._ProgControlPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this._ToolsStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this._ProgTimer = new System.Windows.Forms.Timer(this.components);
+            this.ResizerTimer = new System.Windows.Forms.Timer(this.components);
+            this.MoveTimer = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
-            this._ProgPanel.SuspendLayout();
-            this._ProgColumnStates.SuspendLayout();
-            this._ProgColumnSpace.SuspendLayout();
-            this._ProgColumnComment.SuspendLayout();
             this._ProgControlPanel.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._MenuFile,
             this._MenuSimulation,
-            this.помощьToolStripMenuItem});
+            this._MenuInfo});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1066, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1131, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "Menu";
             // 
             // _MenuFile
             // 
+            this._MenuFile.AutoSize = false;
             this._MenuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._MenuFileCreate,
-            this._MenuFileOpen,
-            this._MenuFileSave,
             this.toolStripSeparator3,
+            this._MenuFileOpen,
+            this._MenuFileReload,
             this._MenuFileImport,
+            this.toolStripSeparator5,
+            this._MenuFileSave,
+            this._MenuFileSaveAs,
             this._MenuFileExport,
             this.toolStripSeparator4,
             this._MenuFileExit});
             this._MenuFile.Name = "_MenuFile";
-            this._MenuFile.Size = new System.Drawing.Size(48, 20);
+            this._MenuFile.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this._MenuFile.Size = new System.Drawing.Size(60, 20);
             this._MenuFile.Text = "Файл";
             // 
             // _MenuFileCreate
             // 
+            this._MenuFileCreate.Image = global::TuringMachine.Properties.Resources.Create;
             this._MenuFileCreate.Name = "_MenuFileCreate";
-            this._MenuFileCreate.Size = new System.Drawing.Size(141, 22);
-            this._MenuFileCreate.Text = "Создать...";
-            // 
-            // _MenuFileOpen
-            // 
-            this._MenuFileOpen.Name = "_MenuFileOpen";
-            this._MenuFileOpen.Size = new System.Drawing.Size(141, 22);
-            this._MenuFileOpen.Text = "Открыть...";
-            // 
-            // _MenuFileSave
-            // 
-            this._MenuFileSave.Name = "_MenuFileSave";
-            this._MenuFileSave.Size = new System.Drawing.Size(141, 22);
-            this._MenuFileSave.Text = "Сохранить...";
+            this._MenuFileCreate.Padding = new System.Windows.Forms.Padding(0);
+            this._MenuFileCreate.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this._MenuFileCreate.Size = new System.Drawing.Size(237, 20);
+            this._MenuFileCreate.Text = "Создать";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(138, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(234, 6);
+            // 
+            // _MenuFileOpen
+            // 
+            this._MenuFileOpen.Image = global::TuringMachine.Properties.Resources.LoadFile;
+            this._MenuFileOpen.Name = "_MenuFileOpen";
+            this._MenuFileOpen.Padding = new System.Windows.Forms.Padding(0);
+            this._MenuFileOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this._MenuFileOpen.Size = new System.Drawing.Size(237, 20);
+            this._MenuFileOpen.Text = "Открыть";
+            // 
+            // _MenuFileReload
+            // 
+            this._MenuFileReload.Image = global::TuringMachine.Properties.Resources.Refresh20;
+            this._MenuFileReload.Name = "_MenuFileReload";
+            this._MenuFileReload.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this._MenuFileReload.Size = new System.Drawing.Size(237, 22);
+            this._MenuFileReload.Text = "Восстановить";
             // 
             // _MenuFileImport
             // 
             this._MenuFileImport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._MenuFileImportExcel});
+            this._MenuFileImportExcel,
+            this._MenuFileImportPolyakov});
             this._MenuFileImport.Name = "_MenuFileImport";
-            this._MenuFileImport.Size = new System.Drawing.Size(141, 22);
+            this._MenuFileImport.Padding = new System.Windows.Forms.Padding(0);
+            this._MenuFileImport.ShowShortcutKeys = false;
+            this._MenuFileImport.Size = new System.Drawing.Size(237, 20);
             this._MenuFileImport.Text = "Импорт";
             // 
             // _MenuFileImportExcel
             // 
+            this._MenuFileImportExcel.Image = global::TuringMachine.Properties.Resources.Excel24;
             this._MenuFileImportExcel.Name = "_MenuFileImportExcel";
-            this._MenuFileImportExcel.Size = new System.Drawing.Size(161, 22);
+            this._MenuFileImportExcel.Size = new System.Drawing.Size(164, 22);
             this._MenuFileImportExcel.Text = "Excel table (.xlsx)";
-            this._MenuFileImportExcel.Click += new System.EventHandler(this._MenuFileImportExcel_Click);
+            // 
+            // _MenuFileImportPolyakov
+            // 
+            this._MenuFileImportPolyakov.Image = global::TuringMachine.Properties.Resources.TuringMachine;
+            this._MenuFileImportPolyakov.Name = "_MenuFileImportPolyakov";
+            this._MenuFileImportPolyakov.Size = new System.Drawing.Size(164, 22);
+            this._MenuFileImportPolyakov.Text = "К. Поляков (.tur)";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(234, 6);
+            // 
+            // _MenuFileSave
+            // 
+            this._MenuFileSave.Image = global::TuringMachine.Properties.Resources.SaveFile;
+            this._MenuFileSave.Name = "_MenuFileSave";
+            this._MenuFileSave.Padding = new System.Windows.Forms.Padding(0);
+            this._MenuFileSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this._MenuFileSave.Size = new System.Drawing.Size(237, 20);
+            this._MenuFileSave.Text = "Сохранить";
+            // 
+            // _MenuFileSaveAs
+            // 
+            this._MenuFileSaveAs.Image = global::TuringMachine.Properties.Resources.SaveAs;
+            this._MenuFileSaveAs.Name = "_MenuFileSaveAs";
+            this._MenuFileSaveAs.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
+            this._MenuFileSaveAs.Size = new System.Drawing.Size(237, 22);
+            this._MenuFileSaveAs.Text = "Сохранить как    ";
             // 
             // _MenuFileExport
             // 
             this._MenuFileExport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._MenuFileExportExcel});
             this._MenuFileExport.Name = "_MenuFileExport";
-            this._MenuFileExport.Size = new System.Drawing.Size(141, 22);
+            this._MenuFileExport.Padding = new System.Windows.Forms.Padding(0);
+            this._MenuFileExport.ShowShortcutKeys = false;
+            this._MenuFileExport.Size = new System.Drawing.Size(237, 20);
             this._MenuFileExport.Text = "Экспорт";
             // 
             // _MenuFileExportExcel
             // 
+            this._MenuFileExportExcel.Image = global::TuringMachine.Properties.Resources.Excel24;
             this._MenuFileExportExcel.Name = "_MenuFileExportExcel";
             this._MenuFileExportExcel.Size = new System.Drawing.Size(161, 22);
             this._MenuFileExportExcel.Text = "Excel table (.xlsx)";
-            this._MenuFileExportExcel.Click += new System.EventHandler(this._MenuFileExportExcel_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(138, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(234, 6);
             // 
             // _MenuFileExit
             // 
+            this._MenuFileExit.Image = global::TuringMachine.Properties.Resources.Cross24;
             this._MenuFileExit.Name = "_MenuFileExit";
-            this._MenuFileExit.Size = new System.Drawing.Size(141, 22);
+            this._MenuFileExit.Padding = new System.Windows.Forms.Padding(0);
+            this._MenuFileExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
+            this._MenuFileExit.Size = new System.Drawing.Size(237, 20);
             this._MenuFileExit.Text = "Выход";
             // 
             // _MenuSimulation
             // 
+            this._MenuSimulation.AutoSize = false;
             this._MenuSimulation.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._MenuSimulationStart,
             this._MenuSimulationStop,
@@ -194,34 +242,41 @@
             this.toolStripSeparator1,
             this._MenuSimulationDelay});
             this._MenuSimulation.Name = "_MenuSimulation";
-            this._MenuSimulation.Size = new System.Drawing.Size(89, 20);
+            this._MenuSimulation.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this._MenuSimulation.Size = new System.Drawing.Size(122, 20);
             this._MenuSimulation.Text = "Выполнение";
             // 
             // _MenuSimulationStart
             // 
+            this._MenuSimulationStart.Image = global::TuringMachine.Properties.Resources.Play;
             this._MenuSimulationStart.Name = "_MenuSimulationStart";
-            this._MenuSimulationStart.Size = new System.Drawing.Size(157, 22);
+            this._MenuSimulationStart.Padding = new System.Windows.Forms.Padding(0);
+            this._MenuSimulationStart.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this._MenuSimulationStart.Size = new System.Drawing.Size(165, 28);
             this._MenuSimulationStart.Text = "Выполнить";
-            this._MenuSimulationStart.Click += new System.EventHandler(this._MenuSimulationStart_Click);
             // 
             // _MenuSimulationStop
             // 
+            this._MenuSimulationStop.Image = global::TuringMachine.Properties.Resources.Stop;
             this._MenuSimulationStop.Name = "_MenuSimulationStop";
-            this._MenuSimulationStop.Size = new System.Drawing.Size(157, 22);
+            this._MenuSimulationStop.Padding = new System.Windows.Forms.Padding(0);
+            this._MenuSimulationStop.ShortcutKeys = System.Windows.Forms.Keys.F6;
+            this._MenuSimulationStop.Size = new System.Drawing.Size(165, 28);
             this._MenuSimulationStop.Text = "Остановить";
-            this._MenuSimulationStop.Click += new System.EventHandler(this._MenuSimulationStop_Click);
             // 
             // _MenuSimulationStep
             // 
+            this._MenuSimulationStep.Image = global::TuringMachine.Properties.Resources.Step;
             this._MenuSimulationStep.Name = "_MenuSimulationStep";
-            this._MenuSimulationStep.Size = new System.Drawing.Size(157, 22);
+            this._MenuSimulationStep.Padding = new System.Windows.Forms.Padding(0);
+            this._MenuSimulationStep.ShortcutKeys = System.Windows.Forms.Keys.F8;
+            this._MenuSimulationStep.Size = new System.Drawing.Size(165, 28);
             this._MenuSimulationStep.Text = "Один шаг";
-            this._MenuSimulationStep.Click += new System.EventHandler(this._MenuSimulationStep_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(154, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(162, 6);
             // 
             // _MenuSimulationDelay
             // 
@@ -234,8 +289,11 @@
             this.toolStripSeparator2,
             this._MenuSimulationDelayCustom,
             this._MenuSimulationDelayValue});
+            this._MenuSimulationDelay.Image = global::TuringMachine.Properties.Resources.Timer20;
+            this._MenuSimulationDelay.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this._MenuSimulationDelay.Name = "_MenuSimulationDelay";
-            this._MenuSimulationDelay.Size = new System.Drawing.Size(157, 22);
+            this._MenuSimulationDelay.Padding = new System.Windows.Forms.Padding(0);
+            this._MenuSimulationDelay.Size = new System.Drawing.Size(165, 28);
             this._MenuSimulationDelay.Text = "Задержка (ms):";
             // 
             // _MenuSimulationDelay0
@@ -243,37 +301,30 @@
             this._MenuSimulationDelay0.Name = "_MenuSimulationDelay0";
             this._MenuSimulationDelay0.Size = new System.Drawing.Size(162, 22);
             this._MenuSimulationDelay0.Text = "Без задержки";
-            this._MenuSimulationDelay0.Click += new System.EventHandler(this._MenuSimulationDelayChange);
             // 
             // _MenuSimulationDelay100
             // 
-            this._MenuSimulationDelay100.Checked = true;
-            this._MenuSimulationDelay100.CheckState = System.Windows.Forms.CheckState.Checked;
             this._MenuSimulationDelay100.Name = "_MenuSimulationDelay100";
             this._MenuSimulationDelay100.Size = new System.Drawing.Size(162, 22);
             this._MenuSimulationDelay100.Text = "100 ms";
-            this._MenuSimulationDelay100.Click += new System.EventHandler(this._MenuSimulationDelayChange);
             // 
             // _MenuSimulationDelay250
             // 
             this._MenuSimulationDelay250.Name = "_MenuSimulationDelay250";
             this._MenuSimulationDelay250.Size = new System.Drawing.Size(162, 22);
             this._MenuSimulationDelay250.Text = "250 ms";
-            this._MenuSimulationDelay250.Click += new System.EventHandler(this._MenuSimulationDelayChange);
             // 
             // _MenuSimulationDelay500
             // 
             this._MenuSimulationDelay500.Name = "_MenuSimulationDelay500";
             this._MenuSimulationDelay500.Size = new System.Drawing.Size(162, 22);
             this._MenuSimulationDelay500.Text = "500 ms";
-            this._MenuSimulationDelay500.Click += new System.EventHandler(this._MenuSimulationDelayChange);
             // 
             // _MenuSimulationDelay1000
             // 
             this._MenuSimulationDelay1000.Name = "_MenuSimulationDelay1000";
             this._MenuSimulationDelay1000.Size = new System.Drawing.Size(162, 22);
             this._MenuSimulationDelay1000.Text = "1000 ms";
-            this._MenuSimulationDelay1000.Click += new System.EventHandler(this._MenuSimulationDelayChange);
             // 
             // toolStripSeparator2
             // 
@@ -290,18 +341,53 @@
             // 
             this._MenuSimulationDelayValue.Name = "_MenuSimulationDelayValue";
             this._MenuSimulationDelayValue.Size = new System.Drawing.Size(100, 23);
-            this._MenuSimulationDelayValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._MenuSimulationDelayType);
             // 
-            // помощьToolStripMenuItem
+            // _MenuInfo
             // 
-            this.помощьToolStripMenuItem.Name = "помощьToolStripMenuItem";
-            this.помощьToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.помощьToolStripMenuItem.Text = "Помощь";
+            this._MenuInfo.AutoSize = false;
+            this._MenuInfo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.машинаТьюрингаToolStripMenuItem,
+            this.работаВЭмулятореToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.оПрограммеToolStripMenuItem});
+            this._MenuInfo.Name = "_MenuInfo";
+            this._MenuInfo.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this._MenuInfo.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this._MenuInfo.Size = new System.Drawing.Size(80, 20);
+            this._MenuInfo.Text = "Помощь";
+            // 
+            // машинаТьюрингаToolStripMenuItem
+            // 
+            this.машинаТьюрингаToolStripMenuItem.Image = global::TuringMachine.Properties.Resources.HelpFile24;
+            this.машинаТьюрингаToolStripMenuItem.Name = "машинаТьюрингаToolStripMenuItem";
+            this.машинаТьюрингаToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.машинаТьюрингаToolStripMenuItem.Text = "Машина Тьюринга";
+            // 
+            // работаВЭмулятореToolStripMenuItem
+            // 
+            this.работаВЭмулятореToolStripMenuItem.Image = global::TuringMachine.Properties.Resources.AppHelp;
+            this.работаВЭмулятореToolStripMenuItem.Name = "работаВЭмулятореToolStripMenuItem";
+            this.работаВЭмулятореToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.работаВЭмулятореToolStripMenuItem.Text = "Работа в эмуляторе";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(180, 6);
+            // 
+            // оПрограммеToolStripMenuItem
+            // 
+            this.оПрограммеToolStripMenuItem.Image = global::TuringMachine.Properties.Resources.Info24;
+            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.оПрограммеToolStripMenuItem.Text = "О программе";
             // 
             // _DescriptionPanel
             // 
             this._DescriptionPanel.AcceptsTab = true;
             this._DescriptionPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._DescriptionPanel.DetectUrls = false;
+            this._DescriptionPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this._DescriptionPanel.Location = new System.Drawing.Point(10, 50);
             this._DescriptionPanel.Margin = new System.Windows.Forms.Padding(0);
             this._DescriptionPanel.Name = "_DescriptionPanel";
@@ -346,91 +432,12 @@
             this._ProgPanel.AutoScroll = true;
             this._ProgPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this._ProgPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this._ProgPanel.Controls.Add(this._ProgColumnStates);
-            this._ProgPanel.Controls.Add(this._ProgColumnSpace);
-            this._ProgPanel.Controls.Add(this._ProgColumnComment);
             this._ProgPanel.Location = new System.Drawing.Point(154, 320);
             this._ProgPanel.Margin = new System.Windows.Forms.Padding(0);
             this._ProgPanel.Name = "_ProgPanel";
             this._ProgPanel.Size = new System.Drawing.Size(846, 247);
             this._ProgPanel.TabIndex = 5;
             this._ProgPanel.WrapContents = false;
-            // 
-            // _ProgColumnStates
-            // 
-            this._ProgColumnStates.AutoSize = true;
-            this._ProgColumnStates.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this._ProgColumnStates.Controls.Add(this._ProgLabelHead);
-            this._ProgColumnStates.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this._ProgColumnStates.Location = new System.Drawing.Point(0, 0);
-            this._ProgColumnStates.Margin = new System.Windows.Forms.Padding(0);
-            this._ProgColumnStates.Name = "_ProgColumnStates";
-            this._ProgColumnStates.Size = new System.Drawing.Size(80, 42);
-            this._ProgColumnStates.TabIndex = 0;
-            this._ProgColumnStates.WrapContents = false;
-            // 
-            // _ProgLabelHead
-            // 
-            this._ProgLabelHead.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this._ProgLabelHead.Image = global::TuringMachine.Properties.Resources.TabliDiagonal;
-            this._ProgLabelHead.Location = new System.Drawing.Point(0, 0);
-            this._ProgLabelHead.Margin = new System.Windows.Forms.Padding(0);
-            this._ProgLabelHead.Name = "_ProgLabelHead";
-            this._ProgLabelHead.Size = new System.Drawing.Size(80, 42);
-            this._ProgLabelHead.TabIndex = 0;
-            // 
-            // _ProgColumnSpace
-            // 
-            this._ProgColumnSpace.AutoSize = true;
-            this._ProgColumnSpace.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this._ProgColumnSpace.Controls.Add(this._ProgLabelSpace);
-            this._ProgColumnSpace.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this._ProgColumnSpace.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this._ProgColumnSpace.Location = new System.Drawing.Point(80, 0);
-            this._ProgColumnSpace.Margin = new System.Windows.Forms.Padding(0);
-            this._ProgColumnSpace.Name = "_ProgColumnSpace";
-            this._ProgColumnSpace.Size = new System.Drawing.Size(60, 42);
-            this._ProgColumnSpace.TabIndex = 1;
-            this._ProgColumnSpace.WrapContents = false;
-            // 
-            // _ProgLabelSpace
-            // 
-            this._ProgLabelSpace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._ProgLabelSpace.Image = global::TuringMachine.Properties.Resources.Space;
-            this._ProgLabelSpace.Location = new System.Drawing.Point(0, 0);
-            this._ProgLabelSpace.Margin = new System.Windows.Forms.Padding(0);
-            this._ProgLabelSpace.Name = "_ProgLabelSpace";
-            this._ProgLabelSpace.Size = new System.Drawing.Size(60, 42);
-            this._ProgLabelSpace.TabIndex = 3;
-            this._ProgLabelSpace.Text = " ";
-            this._ProgLabelSpace.UseVisualStyleBackColor = true;
-            this._ProgLabelSpace.Click += new System.EventHandler(this._ProgLabelSpace_Click);
-            // 
-            // _ProgColumnComment
-            // 
-            this._ProgColumnComment.AutoSize = true;
-            this._ProgColumnComment.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this._ProgColumnComment.Controls.Add(this._ProgLabelComment);
-            this._ProgColumnComment.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this._ProgColumnComment.Location = new System.Drawing.Point(140, 0);
-            this._ProgColumnComment.Margin = new System.Windows.Forms.Padding(0);
-            this._ProgColumnComment.Name = "_ProgColumnComment";
-            this._ProgColumnComment.Size = new System.Drawing.Size(800, 42);
-            this._ProgColumnComment.TabIndex = 2;
-            this._ProgColumnComment.WrapContents = false;
-            // 
-            // _ProgLabelComment
-            // 
-            this._ProgLabelComment.AutoEllipsis = true;
-            this._ProgLabelComment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this._ProgLabelComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this._ProgLabelComment.Location = new System.Drawing.Point(0, 0);
-            this._ProgLabelComment.Margin = new System.Windows.Forms.Padding(0);
-            this._ProgLabelComment.Name = "_ProgLabelComment";
-            this._ProgLabelComment.Size = new System.Drawing.Size(800, 42);
-            this._ProgLabelComment.TabIndex = 2;
-            this._ProgLabelComment.Text = "Комментарий";
-            this._ProgLabelComment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // _ProgLabel
             // 
@@ -482,103 +489,40 @@
             this._TapeCellRight.Text = "+1";
             this._TapeCellRight.UseVisualStyleBackColor = true;
             // 
-            // _ProgControlB2
+            // _ProgControlAddState
             // 
-            this._ProgControlB2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._ProgControlB2.Location = new System.Drawing.Point(50, 10);
-            this._ProgControlB2.Margin = new System.Windows.Forms.Padding(5, 10, 10, 0);
-            this._ProgControlB2.Name = "_ProgControlB2";
-            this._ProgControlB2.Size = new System.Drawing.Size(30, 30);
-            this._ProgControlB2.TabIndex = 0;
-            this._ProgControlB2.UseVisualStyleBackColor = true;
+            this._ProgControlAddState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._ProgControlAddState.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this._ProgControlAddState.Location = new System.Drawing.Point(5, 5);
+            this._ProgControlAddState.Margin = new System.Windows.Forms.Padding(5);
+            this._ProgControlAddState.Name = "_ProgControlAddState";
+            this._ProgControlAddState.Size = new System.Drawing.Size(80, 50);
+            this._ProgControlAddState.TabIndex = 1;
+            this._ProgControlAddState.Text = "Q+";
+            this._ProgControlAddState.UseVisualStyleBackColor = true;
             // 
-            // _ProgControlB1
+            // _ProgControlAddVar
             // 
-            this._ProgControlB1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._ProgControlB1.Location = new System.Drawing.Point(10, 10);
-            this._ProgControlB1.Margin = new System.Windows.Forms.Padding(10, 10, 5, 0);
-            this._ProgControlB1.Name = "_ProgControlB1";
-            this._ProgControlB1.Size = new System.Drawing.Size(30, 30);
-            this._ProgControlB1.TabIndex = 1;
-            this._ProgControlB1.UseVisualStyleBackColor = true;
-            this._ProgControlB1.Click += new System.EventHandler(this.CreateRow);
-            // 
-            // _ProgControlB3
-            // 
-            this._ProgControlB3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._ProgControlB3.Location = new System.Drawing.Point(10, 50);
-            this._ProgControlB3.Margin = new System.Windows.Forms.Padding(10, 10, 5, 0);
-            this._ProgControlB3.Name = "_ProgControlB3";
-            this._ProgControlB3.Size = new System.Drawing.Size(30, 30);
-            this._ProgControlB3.TabIndex = 2;
-            this._ProgControlB3.UseVisualStyleBackColor = true;
-            // 
-            // _ProgControlB4
-            // 
-            this._ProgControlB4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._ProgControlB4.Location = new System.Drawing.Point(50, 50);
-            this._ProgControlB4.Margin = new System.Windows.Forms.Padding(5, 10, 10, 0);
-            this._ProgControlB4.Name = "_ProgControlB4";
-            this._ProgControlB4.Size = new System.Drawing.Size(30, 30);
-            this._ProgControlB4.TabIndex = 3;
-            this._ProgControlB4.UseVisualStyleBackColor = true;
-            // 
-            // _ProgControlB8
-            // 
-            this._ProgControlB8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._ProgControlB8.Location = new System.Drawing.Point(50, 140);
-            this._ProgControlB8.Margin = new System.Windows.Forms.Padding(5, 10, 10, 0);
-            this._ProgControlB8.Name = "_ProgControlB8";
-            this._ProgControlB8.Size = new System.Drawing.Size(30, 30);
-            this._ProgControlB8.TabIndex = 7;
-            this._ProgControlB8.UseVisualStyleBackColor = true;
-            // 
-            // _ProgControlB7
-            // 
-            this._ProgControlB7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._ProgControlB7.Location = new System.Drawing.Point(10, 140);
-            this._ProgControlB7.Margin = new System.Windows.Forms.Padding(10, 10, 5, 0);
-            this._ProgControlB7.Name = "_ProgControlB7";
-            this._ProgControlB7.Size = new System.Drawing.Size(30, 30);
-            this._ProgControlB7.TabIndex = 6;
-            this._ProgControlB7.UseVisualStyleBackColor = true;
-            // 
-            // _ProgControlB6
-            // 
-            this._ProgControlB6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._ProgControlB6.Location = new System.Drawing.Point(50, 100);
-            this._ProgControlB6.Margin = new System.Windows.Forms.Padding(5, 20, 10, 0);
-            this._ProgControlB6.Name = "_ProgControlB6";
-            this._ProgControlB6.Size = new System.Drawing.Size(30, 30);
-            this._ProgControlB6.TabIndex = 5;
-            this._ProgControlB6.UseVisualStyleBackColor = true;
-            // 
-            // _ProgControlB5
-            // 
-            this._ProgControlB5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._ProgControlB5.Location = new System.Drawing.Point(10, 100);
-            this._ProgControlB5.Margin = new System.Windows.Forms.Padding(10, 20, 5, 0);
-            this._ProgControlB5.Name = "_ProgControlB5";
-            this._ProgControlB5.Size = new System.Drawing.Size(30, 30);
-            this._ProgControlB5.TabIndex = 4;
-            this._ProgControlB5.UseVisualStyleBackColor = true;
-            this._ProgControlB5.Click += new System.EventHandler(this.CreateCol);
+            this._ProgControlAddVar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._ProgControlAddVar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this._ProgControlAddVar.Location = new System.Drawing.Point(5, 65);
+            this._ProgControlAddVar.Margin = new System.Windows.Forms.Padding(5);
+            this._ProgControlAddVar.Name = "_ProgControlAddVar";
+            this._ProgControlAddVar.Size = new System.Drawing.Size(80, 50);
+            this._ProgControlAddVar.TabIndex = 4;
+            this._ProgControlAddVar.Text = "S+";
+            this._ProgControlAddVar.UseVisualStyleBackColor = true;
             // 
             // _ProgControlPanel
             // 
             this._ProgControlPanel.BackColor = System.Drawing.SystemColors.Control;
-            this._ProgControlPanel.Controls.Add(this._ProgControlB1);
-            this._ProgControlPanel.Controls.Add(this._ProgControlB2);
-            this._ProgControlPanel.Controls.Add(this._ProgControlB3);
-            this._ProgControlPanel.Controls.Add(this._ProgControlB4);
-            this._ProgControlPanel.Controls.Add(this._ProgControlB5);
-            this._ProgControlPanel.Controls.Add(this._ProgControlB6);
-            this._ProgControlPanel.Controls.Add(this._ProgControlB7);
-            this._ProgControlPanel.Controls.Add(this._ProgControlB8);
+            this._ProgControlPanel.Controls.Add(this._ProgControlAddState);
+            this._ProgControlPanel.Controls.Add(this._ProgControlAddVar);
+            this._ProgControlPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this._ProgControlPanel.Location = new System.Drawing.Point(10, 320);
             this._ProgControlPanel.Margin = new System.Windows.Forms.Padding(0);
             this._ProgControlPanel.Name = "_ProgControlPanel";
-            this._ProgControlPanel.Size = new System.Drawing.Size(90, 180);
+            this._ProgControlPanel.Size = new System.Drawing.Size(90, 131);
             this._ProgControlPanel.TabIndex = 4;
             // 
             // statusStrip1
@@ -587,7 +531,7 @@
             this._ToolsStatus});
             this.statusStrip1.Location = new System.Drawing.Point(0, 591);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1066, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1131, 22);
             this.statusStrip1.TabIndex = 11;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -597,15 +541,20 @@
             this._ToolsStatus.Size = new System.Drawing.Size(118, 17);
             this._ToolsStatus.Text = "toolStripStatusLabel1";
             // 
-            // _ProgTimer
+            // ResizerTimer
             // 
-            this._ProgTimer.Tick += new System.EventHandler(this._ProgTimer_Tick);
+            this.ResizerTimer.Interval = 50;
+            // 
+            // MoveTimer
+            // 
+            this.MoveTimer.Interval = 250;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1066, 613);
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.ClientSize = new System.Drawing.Size(1131, 613);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this._ProgControlPanel);
             this.Controls.Add(this._TapePageRight);
@@ -626,11 +575,6 @@
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this._ProgPanel.ResumeLayout(false);
-            this._ProgPanel.PerformLayout();
-            this._ProgColumnStates.ResumeLayout(false);
-            this._ProgColumnSpace.ResumeLayout(false);
-            this._ProgColumnComment.ResumeLayout(false);
             this._ProgControlPanel.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -644,7 +588,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem _MenuFile;
         private System.Windows.Forms.ToolStripMenuItem _MenuSimulation;
-        private System.Windows.Forms.ToolStripMenuItem помощьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem _MenuInfo;
         private System.Windows.Forms.RichTextBox _DescriptionPanel;
         private System.Windows.Forms.Label _DescriptionLabel;
         private System.Windows.Forms.FlowLayoutPanel _TapePanel;
@@ -676,26 +620,24 @@
         private System.Windows.Forms.Button _TapeCellLeft;
         private System.Windows.Forms.Button _TapePageRight;
         private System.Windows.Forms.Button _TapeCellRight;
-        private System.Windows.Forms.FlowLayoutPanel _ProgColumnStates;
-        private System.Windows.Forms.Label _ProgLabelHead;
-        private System.Windows.Forms.FlowLayoutPanel _ProgColumnSpace;
-        private System.Windows.Forms.FlowLayoutPanel _ProgColumnComment;
-        private System.Windows.Forms.Label _ProgLabelComment;
-        private System.Windows.Forms.Button _ProgControlB8;
-        private System.Windows.Forms.Button _ProgControlB7;
-        private System.Windows.Forms.Button _ProgControlB6;
-        private System.Windows.Forms.Button _ProgControlB5;
-        private System.Windows.Forms.Button _ProgControlB4;
-        private System.Windows.Forms.Button _ProgControlB3;
-        private System.Windows.Forms.Button _ProgControlB1;
-        private System.Windows.Forms.Button _ProgControlB2;
+        private System.Windows.Forms.Button _ProgControlAddVar;
+        private System.Windows.Forms.Button _ProgControlAddState;
         private System.Windows.Forms.FlowLayoutPanel _ProgControlPanel;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel _ToolsStatus;
-        private System.Windows.Forms.Button _ProgLabelSpace;
         private System.Windows.Forms.Timer _ProgTimer;
         private System.Windows.Forms.ToolStripMenuItem _MenuFileExportExcel;
         private System.Windows.Forms.ToolStripMenuItem _MenuFileImportExcel;
+        private System.Windows.Forms.Timer ResizerTimer;
+        private System.Windows.Forms.ToolStripMenuItem _MenuFileImportPolyakov;
+        private System.Windows.Forms.ToolStripMenuItem _MenuFileReload;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem _MenuFileSaveAs;
+        private System.Windows.Forms.ToolStripMenuItem машинаТьюрингаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem работаВЭмулятореToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
+        private System.Windows.Forms.Timer MoveTimer;
     }
 }
 
